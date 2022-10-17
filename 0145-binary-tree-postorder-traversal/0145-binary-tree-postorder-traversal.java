@@ -14,7 +14,12 @@
  * }
  */
 class Solution {
- private void postorder(TreeNode root, List<Integer> list){
+  public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> list = new LinkedList<Integer>();
+        postorder(root,list);
+        return list;
+   }
+   private void postorder(TreeNode root, List<Integer> list){
         
         if(root == null){
             return;
@@ -24,10 +29,5 @@ class Solution {
         list.add(root.val);
         // return list;
         
-    }
-    public List<Integer> postorderTraversal(TreeNode root) {
-        List<Integer> list = new LinkedList<Integer>();
-        postorder(root,list);
-        return list;
     }
 }
