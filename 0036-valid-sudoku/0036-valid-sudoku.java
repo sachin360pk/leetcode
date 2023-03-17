@@ -1,13 +1,19 @@
 class Solution {
     public boolean isValidSudoku(char[][] board) {
-        HashSet seen=new HashSet();
+        Set<String> seen=new HashSet();
         for(int i=0;i<9;i++){
             for(int j=0;j<9;j++){
-                if(board[i][j]!='.'){
-                    if(!seen.add("row"+i+board[i][j]) || !seen.add("column"+j+board[i][j]))
+                char num=board[i][j];
+              if(num!='.'){
+                    if(seen.contains(num+"_R_"+i) || 
+                       seen.contains(num+"_C_"+j) ||
+                       seen.contains(num+"_B_"+i/3+"_"+j/3)){
                         return false;
-                    if(!seen.add("box"+(i/3)*3+j/3+board[i][j]))
-                        return false;
+                    }else{
+                        seen.add(num+"_R_"+i);
+                        seen.add(num+"_C_"+j);
+                        seen.add(num+"_B_"+i/3+"_"+j/3);
+                    }
                 }
             }
         }
