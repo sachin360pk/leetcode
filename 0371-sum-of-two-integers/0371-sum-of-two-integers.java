@@ -16,11 +16,21 @@ class Solution {
         // find xor and carry and left shift carry
         // again take xor with xor and carry lift shift
         
-        int xor=a^b;
-        int carry=a&b;
-        if(carry==0)
-            return xor;
-        else 
-            return getSum(xor,carry<<1);        
+        // int xor=a^b;
+        // int carry=a&b;
+        // if(carry==0)
+        //     return xor;
+        // else 
+        //     return getSum(xor,carry<<1);    
+        
+        
+        
+        
+        
+        // both code above and this are same
+        if (b == 0)
+            return a;
+        else
+            return getSum(a ^ b, (a & b) << 1);
     }
 }
